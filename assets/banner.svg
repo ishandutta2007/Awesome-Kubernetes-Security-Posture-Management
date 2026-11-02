@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" style="background:#0b0f19;border-radius:12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1026" />
+      <stop offset="50%" stop-color="#0e172e" />
+      <stop offset="100%" stop-color="#070a14" />
+    </linearGradient>
+
+    <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#326ce5" />
+      <stop offset="50%" stop-color="#00d2ff" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#326ce5" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#00f2fe" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Filter for neon glows -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* Animated decorative elements in background */
+    @keyframes pulseOrb {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.35; }
+      50% { transform: scale(1.18) translate(15px, -10px); opacity: 0.65; }
+      100% { transform: scale(1) translate(0, 0); opacity: 0.35; }
+    }
+
+    @keyframes rotateWheel {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes scanLine {
+      0% { transform: translateY(0); opacity: 0.2; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(220px); opacity: 0.2; }
+    }
+
+    @keyframes dashMove {
+      to { stroke-dashoffset: -100; }
+    }
+
+    @keyframes floatPill {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .bg-orb-1 { animation: pulseOrb 8s ease-in-out infinite; transform-origin: 1050px 90px; }
+    .bg-orb-2 { animation: pulseOrb 10s ease-in-out infinite reverse; transform-origin: 150px 280px; }
+    .helm-rotate { animation: rotateWheel 30s linear infinite; transform-origin: 1020px 180px; }
+    .scanner-beam { animation: scanLine 4s ease-in-out infinite alternate; }
+    .network-stream { stroke-dasharray: 6 6; animation: dashMove 2.5s linear infinite; }
+    .floating-badge { animation: floatPill 5s ease-in-out infinite; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)" rx="12" />
+
+  <!-- Background Subtle Grid -->
+  <g opacity="0.12" stroke="#326ce5" stroke-width="1">
+    <path d="M0 60 H1200 M0 120 H1200 M0 180 H1200 M0 240 H1200 M0 300 H1200" />
+    <path d="M100 0 V360 M200 0 V360 M300 0 V360 M400 0 V360 M500 0 V360 M600 0 V360 M700 0 V360 M800 0 V360 M900 0 V360 M1000 0 V360 M1100 0 V360" />
+  </g>
+
+  <!-- Ambient Glowing Orbs in Deep Background -->
+  <circle class="bg-orb-1" cx="1020" cy="180" r="140" fill="#326ce5" filter="url(#glow)" />
+  <circle class="bg-orb-2" cx="180" cy="260" r="110" fill="#a855f7" filter="url(#glow)" />
+
+  <!-- Animated Kubernetes Wheel & Shield Graphic (Right Side Background) -->
+  <g opacity="0.35">
+    <!-- Connecting network streams -->
+    <path d="M780,180 C880,120 940,240 1020,180" fill="none" stroke="#00d2ff" stroke-width="2" class="network-stream" />
+    <path d="M840,260 C900,180 960,140 1020,180" fill="none" stroke="#a855f7" stroke-width="1.5" class="network-stream" />
+    
+    <!-- Rotating K8s Steering Wheel Outer Ring -->
+    <g class="helm-rotate">
+      <circle cx="1020" cy="180" r="95" fill="none" stroke="#326ce5" stroke-width="2" stroke-dasharray="12 8" />
+      <circle cx="1020" cy="180" r="75" fill="none" stroke="#00d2ff" stroke-width="1.5" />
+      <!-- Helm Spokes -->
+      <line x1="1020" y1="85" x2="1020" y2="275" stroke="#326ce5" stroke-width="2" />
+      <line x1="925" y1="180" x2="1115" y2="180" stroke="#326ce5" stroke-width="2" />
+      <line x1="953" y1="113" x2="1087" y2="247" stroke="#326ce5" stroke-width="2" />
+      <line x1="953" y1="247" x2="1087" y2="113" stroke="#326ce5" stroke-width="2" />
+    </g>
+
+    <!-- Center Security Shield -->
+    <path d="M1020,135 L1060,155 V195 C1060,220 1020,235 1020,235 C1020,235 980,220 980,195 V155 Z" fill="url(#shieldGrad)" stroke="#00d2ff" stroke-width="2" />
+    <circle cx="1020" cy="180" r="10" fill="#00f2fe" filter="url(#softGlow)" />
+  </g>
+
+  <!-- Foreground Content: Strict Layering ensures 100% readability -->
+  
+  <!-- Pill Badges at Top Left (Foreground) -->
+  <g transform="translate(80, 52)">
+    <!-- Pill 1: KSPM -->
+    <rect x="0" y="0" width="85" height="26" rx="13" fill="#1e293b" stroke="#3b82f6" stroke-width="1" />
+    <text x="42" y="17" fill="#60a5fa" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">KSPM</text>
+
+    <!-- Pill 2: CNAPP -->
+    <rect x="95" y="0" width="90" height="26" rx="13" fill="#1e293b" stroke="#06b6d4" stroke-width="1" />
+    <text x="140" y="17" fill="#22d3ee" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">CNAPP</text>
+
+    <!-- Pill 3: RUNTIME eBPF -->
+    <rect x="195" y="0" width="135" height="26" rx="13" fill="#1e293b" stroke="#8b5cf6" stroke-width="1" />
+    <text x="262" y="17" fill="#c084fc" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">RUNTIME eBPF</text>
+
+    <!-- Pill 4: CIS & NSA -->
+    <rect x="340" y="0" width="145" height="26" rx="13" fill="#1e293b" stroke="#10b981" stroke-width="1" />
+    <text x="412" y="17" fill="#34d399" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">CIS &amp; NSA COMPLIANCE</text>
+  </g>
+
+  <!-- Main Title (Foreground) -->
+  <text x="80" y="145" fill="#ffffff" font-size="44" font-weight="800" letter-spacing="-0.5">
+    Awesome Kubernetes Security
+  </text>
+  <text x="80" y="195" fill="url(#accentGlow)" font-size="36" font-weight="800" letter-spacing="-0.5">
+    &amp; Posture Management (KSPM)
+  </text>
+
+  <!-- Subtitle Description (Foreground) -->
+  <text x="80" y="240" fill="#94a3b8" font-size="17" font-weight="400">
+    Curated guide to cloud-native cluster hardening, admission control, eBPF runtime detection,
+  </text>
+  <text x="80" y="265" fill="#94a3b8" font-size="17" font-weight="400">
+    and leading enterprise SaaS vs production-proven open-source tools.
+  </text>
+
+  <!-- Dynamic Security Metric Bar Cards (Foreground) -->
+  <g class="floating-badge" transform="translate(80, 292)">
+    <!-- Metric 1 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="170" height="38" rx="8" fill="#131c33" stroke="#25355a" stroke-width="1" />
+      <circle cx="20" cy="19" r="6" fill="#10b981" />
+      <text x="35" y="24" fill="#cbd5e1" font-size="13" font-weight="600">CIS Benchmarks</text>
+    </g>
+
+    <!-- Metric 2 -->
+    <g transform="translate(185, 0)">
+      <rect x="0" y="0" width="175" height="38" rx="8" fill="#131c33" stroke="#25355a" stroke-width="1" />
+      <circle cx="20" cy="19" r="6" fill="#3b82f6" />
+      <text x="35" y="24" fill="#cbd5e1" font-size="13" font-weight="600">Admission Control</text>
+    </g>
+
+    <!-- Metric 3 -->
+    <g transform="translate(375, 0)">
+      <rect x="0" y="0" width="180" height="38" rx="8" fill="#131c33" stroke="#25355a" stroke-width="1" />
+      <circle cx="20" cy="19" r="6" fill="#a855f7" />
+      <text x="35" y="24" fill="#cbd5e1" font-size="13" font-weight="600">eBPF Threat Forensics</text>
+    </g>
+
+    <!-- Metric 4 -->
+    <g transform="translate(570, 0)">
+      <rect x="0" y="0" width="165" height="38" rx="8" fill="#131c33" stroke="#25355a" stroke-width="1" />
+      <circle cx="20" cy="19" r="6" fill="#f59e0b" />
+      <text x="35" y="24" fill="#cbd5e1" font-size="13" font-weight="600">Zero-Trust Network</text>
+    </g>
+  </g>
+
+  <!-- Border Highlight -->
+  <rect x="0" y="0" width="100%" height="100%" fill="none" stroke="#25355a" stroke-width="1.5" rx="12" />
+</svg>
