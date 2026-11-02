@@ -67,9 +67,9 @@ The table below catalogs leading commercial KSPM and CNAPP solutions, sorted in 
 
 ## 🔓 Open-Source GitHub Projects
 
-The table below ranks open-source projects across the cloud-native ecosystem by popularity (GitHub Star count, descending). Every tool includes a direct link to inspect its community stargazers.
+The table below ranks open-source projects across the cloud-native ecosystem by popularity (GitHub Stars_Count, descending). Every tool includes a direct link to inspect its community stargazers.
 
-| Project & Repo | GitHub Stars | Primary Domain | Core Features & Architecture |
+| Project & Repo | GitHub_Stars | Primary Domain | Core Features & Architecture |
 | :--- | :--- | :--- | :--- |
 | **[aquasecurity/trivy](https://github.com/aquasecurity/trivy)** 🔍 | [![Stars](https://img.shields.io/github/stars/aquasecurity/trivy?style=social&color=white)](https://github.com/aquasecurity/trivy/stargazers) | Vulnerability & Config Audit | All-in-one comprehensive scanner: detects CVEs, IaC misconfigurations, exposed secrets, software licenses, and Kubernetes workload posture issues. |
 | **[cilium/cilium](https://github.com/cilium/cilium)** 🐝 | [![Stars](https://img.shields.io/github/stars/cilium/cilium?style=social&color=white)](https://github.com/cilium/cilium/stargazers) | eBPF Network & Security | CNCF Graduated eBPF networking engine; enforces L3/L4 and L7 API security policies, identity-aware encryption, and transparent cluster observability via Hubble. |
